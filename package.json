@@ -1,0 +1,70 @@
+{
+  "name": "test-table",
+  "version": "0.0.1",
+  "description": "test-table",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:209/test_table.git"
+  },
+  "engines": {
+    "npm": ">=5",
+    "node": ">=8.15.1"
+  },
+  "author": "ilya.kolevatykh",
+  "scripts": {
+    "start": "webpack-dev-server --port 3000 --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@babel/polyfill": "7.10.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.10.3",
+    "@babel/core": "7.10.3",
+    "@babel/plugin-proposal-class-properties": "7.10.1",
+    "@babel/plugin-syntax-dynamic-import": "7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "7.10.1",
+    "@babel/preset-env": "7.10.3",
+    "@babel/preset-react": "7.10.1",
+    "@babel/register": "7.10.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "8.1.0",
+    "babel-plugin-dynamic-import-node": "2.3.3",
+    "babel-plugin-import": "1.13.0",
+    "babel-plugin-named-asset-import": "0.3.6",
+    "circular-dependency-plugin": "5.2.0",
+    "eslint": "7.3.1",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-import-resolver-webpack": "0.12.2",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.1",
+    "eslint-plugin-react-hooks": "4.0.4",
+    "file-loader": "6.0.0",
+    "html-loader": "1.1.0",
+    "html-webpack-plugin": "4.3.0",
+    "imports-loader": "1.1.0",
+    "prettier": "2.0.5",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
+  }
+}
