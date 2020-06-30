@@ -25,7 +25,7 @@ function RecordModal(props) {
   const handleClose = () => onClose();
 
   return (
-    <Modal>
+    <Modal onClose={handleClose}>
       <Tabs>
         <Tab tabTitle="Name">
           <TextInput value={name} onChange={handleChangeName} />
@@ -37,7 +37,7 @@ function RecordModal(props) {
           <TextInput value={phone} onChange={handleChangePhone} />
         </Tab>
       </Tabs>
-      <div>
+      <div style={{ padding: '0 10px 0 10px', marginTop: 30 }}>
         <Button onClick={handleAdd}>{record ? 'Save' : 'Add'}</Button>
         <Button onClick={handleClose}>Close</Button>
       </div>

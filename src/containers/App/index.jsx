@@ -10,6 +10,15 @@ const saveRecordsToStorage = (records) => {
   window.localStorage.setItem('records', JSON.stringify(records));
 };
 
+const wrapperStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+};
+const contentStyle = {
+  marginTop: '30',
+  width: '60%',
+};
+
 // @todo: use context
 function App() {
   const [records, setRecords] = useState([]);
@@ -66,51 +75,53 @@ function App() {
   };
 
   return (
-    <div>
-      {isModalOpen && (
-        <RecordModal
-          record={recordEdit}
-          onApply={handleApplyRecord}
-          onClose={handleCloseModal}
-        />
-      )}
-      <h1>App</h1>
-      <Button onClick={handleOpenModal}>Add</Button>
-      <Table
-        header={[
-          { id: 'name', field: 'name', title: 'Name' },
-          { id: 'email', field: 'email', title: 'Email' },
-          { id: 'phone', field: 'phone', title: 'Phone' },
-          {
-            id: 'actions',
-            title: 'Actions',
-            render: (record) => {
-              const handleEdit = () => editRecord(record);
-              const handleRemove = () => removeRecord(record.id);
+    <div style={wrapperStyle}>
+      <div style={contentStyle}>
+        {isModalOpen && (
+          <RecordModal
+            record={recordEdit}
+            onApply={handleApplyRecord}
+            onClose={handleCloseModal}
+          />
+        )}
+        <h1>App</h1>
+        <Button onClick={handleOpenModal}>Add</Button>
+        <Table
+          header={[
+            { id: 'name', field: 'name', title: 'Name' },
+            { id: 'email', field: 'email', title: 'Email' },
+            { id: 'phone', field: 'phone', title: 'Phone' },
+            {
+              id: 'actions',
+              title: 'Actions',
+              render: (record) => {
+                const handleEdit = () => editRecord(record);
+                const handleRemove = () => removeRecord(record.id);
 
-              return (
-                <>
-                  <ButtonIcon onClick={handleEdit}>
-                    <img
-                      style={{ width: '100%', height: '100%' }}
-                      alt="edit"
-                      src={EditIcon}
-                    />
-                  </ButtonIcon>
-                  <ButtonIcon onClick={handleRemove}>
-                    <img
-                      style={{ width: '100%', height: '100%' }}
-                      alt="remove"
-                      src={RemoveIcon}
-                    />
-                  </ButtonIcon>
-                </>
-              );
+                return (
+                  <>
+                    <ButtonIcon onClick={handleEdit}>
+                      <img
+                        style={{ width: '100%', height: '100%' }}
+                        alt="edit"
+                        src={EditIcon}
+                      />
+                    </ButtonIcon>
+                    <ButtonIcon onClick={handleRemove}>
+                      <img
+                        style={{ width: '100%', height: '100%' }}
+                        alt="remove"
+                        src={RemoveIcon}
+                      />
+                    </ButtonIcon>
+                  </>
+                );
+              },
             },
-          },
-        ]}
-        rows={records}
-      />
+          ]}
+          rows={records}
+        />
+      </div>
     </div>
   );
 }

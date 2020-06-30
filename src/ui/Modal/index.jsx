@@ -26,14 +26,15 @@ const contentStyle = {
   backgroundColor: 'white',
   width: '400px',
   height: '400px',
+  padding: '10px',
 };
 
 function Modal(props) {
-  const { children } = props;
+  const { children, onClose } = props;
 
   return (
     <div style={wrapperStyle}>
-      <div style={overlayStyle} />
+      <div onClick={onClose} style={overlayStyle} />
       <div style={contentStyle}>{children}</div>
     </div>
   );
@@ -41,6 +42,7 @@ function Modal(props) {
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Modal;

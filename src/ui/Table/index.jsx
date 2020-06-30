@@ -1,6 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const tableStyle = {
+  width: '100%',
+  border: '1px solid #999',
+  borderCollapse: 'collapse',
+};
+const theadStyle = {
+  fontWeight: 'bold',
+  textAlign: 'left',
+};
+const thStyle = {
+  border: '1px solid #999',
+  padding: 5,
+};
+const tdStyle = {
+  border: '1px solid #999',
+  padding: 5,
+};
+
 function Table(props) {
   const { header, rows } = props;
 
@@ -10,11 +28,13 @@ function Table(props) {
   }));
 
   return (
-    <table>
-      <thead>
+    <table style={tableStyle}>
+      <thead style={theadStyle}>
         <tr>
           {header.map((item) => (
-            <th key={item.id}>{item.title}</th>
+            <th style={thStyle} key={item.id}>
+              {item.title}
+            </th>
           ))}
         </tr>
       </thead>
@@ -26,9 +46,17 @@ function Table(props) {
 
               const key = `td_${record.id}_${field}`;
               if (render) {
-                return <td key={key}>{render(record, recordIndex)}</td>;
+                return (
+                  <td style={tdStyle} key={key}>
+                    {render(record, recordIndex)}
+                  </td>
+                );
               }
-              return <td key={key}>{record[field]}</td>;
+              return (
+                <td style={tdStyle} key={key}>
+                  {record[field]}
+                </td>
+              );
             })}
           </tr>
         ))}
